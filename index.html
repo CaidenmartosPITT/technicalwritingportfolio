@@ -6,181 +6,243 @@
   <title>Caiden Martos | Portfolio</title>
   <style>
     :root {
-      --primary: #0d9488; /* Vibrant Teal Accent */
-      --bg: #111827; /* Deep Charcoal Background */
-      --surface: #1f2937; /* Lighter Charcoal for Cards */
-      --text: #f3f4f6;
-      --text-muted: #9ca3af;
+      --primary-blue: #003594; 
+      --accent-gold: #FFB81C; 
+      --bg-light: #f4f7f6;
+      --text-dark: #2b2b2b;
+      --card-bg: #ffffff;
     }
     
     * { 
       box-sizing: border-box; 
       margin: 0; 
       padding: 0; 
-      font-family: 'Segoe UI', system-ui, sans-serif; 
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
     }
     
     body { 
-      background-color: var(--bg); 
-      color: var(--text); 
-      line-height: 1.6; 
+      background-color: var(--bg-light); 
+      color: var(--text-dark); 
+      line-height: 1.7; 
+      display: flex; 
+      flex-direction: column; 
+      min-height: 100vh; 
     }
 
-    /* Floating Glass Navigation */
-    nav {
-      position: fixed; 
+    /* Navigation */
+    header { 
+      background-color: var(--primary-blue); 
+      border-bottom: 5px solid var(--accent-gold); 
+      padding: 1rem 2rem; 
+      position: sticky; 
       top: 0; 
-      width: 100%;
-      background: rgba(17, 24, 39, 0.8);
-      backdrop-filter: blur(12px);
-      padding: 1.2rem; 
-      text-align: center;
-      border-bottom: 1px solid #374151;
-      z-index: 1000;
+      z-index: 100; 
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
     }
     
-    nav a { 
-      color: var(--text); 
+    nav { 
+      max-width: 1000px; 
+      margin: 0 auto; 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+    }
+    
+    .logo { 
+      color: #fff; 
+      font-size: 1.5rem; 
+      font-weight: bold; 
       text-decoration: none; 
-      margin: 0 1.5rem; 
-      font-weight: 600; 
-      text-transform: uppercase; 
       letter-spacing: 1px; 
-      font-size: 0.85rem; 
-      transition: color 0.3s; 
     }
     
-    nav a:hover { color: var(--primary); }
+    .nav-links a { 
+      color: #fff; 
+      text-decoration: none; 
+      margin-left: 2rem; 
+      font-weight: 500; 
+      transition: color 0.2s; 
+    }
+    
+    .nav-links a:hover { color: var(--accent-gold); }
 
     main { 
-      max-width: 850px; 
-      margin: 0 auto; 
-      padding: 7rem 1.5rem 2rem; 
+      max-width: 1000px; 
+      margin: 3rem auto; 
+      padding: 0 2rem; 
+      width: 100%; 
+      flex: 1; 
     }
 
-    .hero {
-      height: 50vh; 
-      display: flex; 
-      flex-direction: column; 
-      justify-content: center; 
-      align-items: center; 
-      text-align: center;
-      background: linear-gradient(135deg, rgba(13,148,136,0.15) 0%, rgba(17,24,39,0) 100%);
-      border-radius: 16px; 
+    /* Required Section a: Hero Image/Name */
+    .hero { 
+      background: var(--card-bg); 
+      padding: 4rem 3rem; 
+      border-radius: 8px; 
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
+      text-align: left; 
       margin-bottom: 3rem; 
-      border: 1px solid #374151;
+      border-left: 8px solid var(--primary-blue); 
     }
     
-    .hero h1 { font-size: 3.5rem; margin-bottom: 0.5rem; color: var(--primary); }
-    .hero p { font-size: 1.2rem; color: var(--text-muted); }
+    .hero h1 { font-size: 3rem; color: var(--primary-blue); margin-bottom: 1rem; }
+    .hero p { font-size: 1.2rem; color: #555; max-width: 600px; }
 
-    section { 
-      background: var(--surface); 
-      padding: 3rem; 
-      border-radius: 12px; 
-      margin-bottom: 2rem; 
-      border: 1px solid #374151;
+    /* Layout Grid */
+    .content-grid { 
+      display: grid; 
+      grid-template-columns: 1fr 1fr; 
+      gap: 2rem; 
+      margin-bottom: 3rem; 
     }
     
-    h2 { 
-      border-bottom: 2px solid var(--primary); 
-      padding-bottom: 0.5rem; 
+    .section-card { 
+      background: var(--card-bg); 
+      padding: 2.5rem; 
+      border-radius: 8px; 
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
+    }
+    
+    .section-card h2 { 
+      color: var(--primary-blue); 
+      font-size: 1.8rem; 
       margin-bottom: 1.5rem; 
-      display: inline-block; 
-    }
-
-    .projects-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
+      position: relative; 
+      padding-bottom: 0.5rem; 
     }
     
-    .projects-list li a {
-      color: var(--primary);
-      text-decoration: none;
-      font-size: 1.1rem;
-      transition: opacity 0.2s;
+    .section-card h2::after { 
+      content: ''; 
+      position: absolute; 
+      left: 0; 
+      bottom: 0; 
+      height: 3px; 
+      width: 50px; 
+      background-color: var(--accent-gold); 
     }
-    
-    .projects-list li a:hover { opacity: 0.7; }
 
-    form { 
+    /* Required Section d: Portfolio Links */
+    .projects-list { list-style: none; }
+    .projects-list li { margin-bottom: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; }
+    .projects-list li:last-child { border-bottom: none; }
+    .projects-list li a { 
+      color: var(--text-dark); 
+      text-decoration: none; 
+      font-weight: bold; 
       display: flex; 
-      flex-direction: column; 
-      gap: 1rem; 
+      justify-content: space-between; 
+      transition: color 0.2s; 
     }
+    
+    .projects-list li a:hover { color: var(--primary-blue); }
+    .projects-list li a::after { content: '→'; color: var(--accent-gold); }
+
+    /* Required Section e: Contact Form */
+    .contact-form { grid-column: 1 / -1; }
+    form { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .full-width { grid-column: 1 / -1; }
     
     input, textarea { 
       width: 100%; 
       padding: 1rem; 
-      border-radius: 8px; 
-      border: 1px solid #4b5563; 
-      background: #111827; 
-      color: white; 
-      font-family: inherit;
+      border: 1px solid #ccc; 
+      border-radius: 4px; 
+      font-family: inherit; 
+    }
+    
+    input:focus, textarea:focus { 
+      outline: none; 
+      border-color: var(--primary-blue); 
+      box-shadow: 0 0 0 2px rgba(0,53,148,0.2); 
     }
     
     button { 
-      background: var(--primary); 
-      color: white; 
+      grid-column: 1 / -1; 
+      background-color: var(--primary-blue); 
+      color: #fff; 
       border: none; 
-      padding: 1rem 2rem; 
-      border-radius: 8px; 
-      cursor: pointer; 
+      padding: 1rem; 
+      border-radius: 4px; 
+      font-size: 1.1rem; 
       font-weight: bold; 
-      width: max-content; 
-      transition: background 0.2s;
+      cursor: pointer; 
+      transition: background 0.2s; 
     }
     
-    button:hover { background: #0f766e; }
+    button:hover { background-color: #002266; }
 
     footer { 
+      background-color: var(--text-dark); 
+      color: #fff; 
       text-align: center; 
       padding: 2rem; 
-      color: var(--text-muted); 
-      font-size: 0.9rem; 
+      margin-top: auto; 
+    }
+
+    @media (max-width: 768px) {
+      .content-grid { grid-template-columns: 1fr; }
+      form { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
     }
   </style>
 </head>
 <body>
 
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#portfolio">Projects</a>
-    <a href="#contact">Contact</a>
-  </nav>
+  <header>
+    <nav>
+      <a href="#" class="logo">CM.</a>
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#portfolio">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
 
   <main>
     <section id="home" class="hero">
       <h1>Caiden Martos</h1>
-      <p>Technical Writing & Design Portfolio</p>
+      <p>Technical Writing Portfolio</p>
     </section>
 
-    <section id="about">
-      <h2>About Me</h2>
-      <p>I am a Mechanical Engineering student at the University of Pittsburgh.</p>
-      <br>
-      <p><strong>Interests:</strong> I enjoy traveling, hiking, gaming, and reading.</p>
-    </section>
+    <div class="content-grid">
+      <section id="about" class="section-card">
+        <h2>About Me</h2>
+        <p>I am a Mechanical Engineering student at the University of Pittsburgh.</p>
+        <br>
+        <p><strong>Interests:</strong> I enjoy movies, travel, hiking, gaming, and reading.</p>
+      </section>
 
-    <section id="portfolio">
-      <h2>Portfolio Projects</h2>
-      <ul class="projects-list">
-        <li><a href="#">&rarr; Project Proposal</a></li>
-        <li><a href="#">&rarr; Safety Document</a></li>
-        <li><a href="#">&rarr; Informational Infographic</a></li>
-        <li><a href="#">&rarr; Usability Study Report</a></li>
-        <li><a href="#">&rarr; Oral Presentation Deck</a></li>
-      </ul>
-    </section>
 
-    <section id="contact">
-      <h2>Contact Me</h2>
-      <form action="#" method="POST">
-        <input type="text" name="name" placeholder="Name" required>
-        <input type="email" name="email" placeholder="Email Address" required>
-        <textarea name="message" rows="5" placeholder="How can I help you?" required></textarea>
-        <button type="submit">Submit Message</button>
-      </form>
+      <section id="portfolio" class="section-card">
+        <h2>Portfolio Projects</h2>
+        <ul class="projects-list">
+          <li><a href="#">Project Proposal</a></li>
+          <li><a href="#">Safety Document</a></li>
+          <li><a href="#">Informational Infographic</a></li>
+          <li><a href="#">Main Project</a></li>
+          <li><a href="#">Usability Study Report</a></li>
+          <li><a href="#">Oral Presentation Deck</a></li>
+        </ul>
+      </section>
+
+
+      <section id="contact" class="section-card contact-form">
+        <h2>Contact Me</h2>
+        <form action="#" method="POST">
+          <input type="text" name="name" placeholder="Full Name" required>
+          <input type="email" name="email" placeholder="Email Address" required>
+          <textarea class="full-width" name="message" rows="5" placeholder="How can I help you?" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Caiden Martos. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
