@@ -3,67 +3,188 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Technical Writing Portfolio</title>
+  <title>Caiden Martos | Portfolio</title>
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #eef2f6; color: #2d3748; line-height: 1.6; }
-    header { background: #1e334a; color: #fff; text-align: center; padding: 3rem 1rem 1.5rem; }
-    header h1 { font-size: 2.2rem; margin-bottom: 0.5rem; }
-    header p { color: #cbd5e1; font-size: 1.05rem; }
-    nav { background: #152435; text-align: center; padding: 0.75rem; }
-    nav a { color: #e2e8f0; margin: 0 1rem; text-decoration: none; font-weight: 500; }
-    nav a:hover { color: #60a5fa; }
-    main { max-width: 800px; margin: 2rem auto; padding: 0 1rem; display: flex; flex-direction: column; gap: 1.5rem; }
-    .card { background: #fff; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
-    .card h2 { color: #1e334a; margin-bottom: 0.5rem; font-size: 1.4rem; }
-    footer { background: #1e334a; color: #94a3b8; text-align: center; padding: 1.5rem; font-size: 0.9rem; margin-top: 3rem; }
+    :root {
+      --primary: #0d9488; /* Vibrant Teal Accent */
+      --bg: #111827; /* Deep Charcoal Background */
+      --surface: #1f2937; /* Lighter Charcoal for Cards */
+      --text: #f3f4f6;
+      --text-muted: #9ca3af;
+    }
+    
+    * { 
+      box-sizing: border-box; 
+      margin: 0; 
+      padding: 0; 
+      font-family: 'Segoe UI', system-ui, sans-serif; 
+    }
+    
+    body { 
+      background-color: var(--bg); 
+      color: var(--text); 
+      line-height: 1.6; 
+    }
+
+    /* Floating Glass Navigation */
+    nav {
+      position: fixed; 
+      top: 0; 
+      width: 100%;
+      background: rgba(17, 24, 39, 0.8);
+      backdrop-filter: blur(12px);
+      padding: 1.2rem; 
+      text-align: center;
+      border-bottom: 1px solid #374151;
+      z-index: 1000;
+    }
+    
+    nav a { 
+      color: var(--text); 
+      text-decoration: none; 
+      margin: 0 1.5rem; 
+      font-weight: 600; 
+      text-transform: uppercase; 
+      letter-spacing: 1px; 
+      font-size: 0.85rem; 
+      transition: color 0.3s; 
+    }
+    
+    nav a:hover { color: var(--primary); }
+
+    main { 
+      max-width: 850px; 
+      margin: 0 auto; 
+      padding: 7rem 1.5rem 2rem; 
+    }
+
+    /* Required Section a: Hero Image/Name */
+    .hero {
+      height: 50vh; 
+      display: flex; 
+      flex-direction: column; 
+      justify-content: center; 
+      align-items: center; 
+      text-align: center;
+      background: linear-gradient(135deg, rgba(13,148,136,0.15) 0%, rgba(17,24,39,0) 100%);
+      border-radius: 16px; 
+      margin-bottom: 3rem; 
+      border: 1px solid #374151;
+    }
+    
+    .hero h1 { font-size: 3.5rem; margin-bottom: 0.5rem; color: var(--primary); }
+    .hero p { font-size: 1.2rem; color: var(--text-muted); }
+
+    section { 
+      background: var(--surface); 
+      padding: 3rem; 
+      border-radius: 12px; 
+      margin-bottom: 2rem; 
+      border: 1px solid #374151;
+    }
+    
+    h2 { 
+      border-bottom: 2px solid var(--primary); 
+      padding-bottom: 0.5rem; 
+      margin-bottom: 1.5rem; 
+      display: inline-block; 
+    }
+
+    .projects-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    .projects-list li a {
+      color: var(--primary);
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: opacity 0.2s;
+    }
+    
+    .projects-list li a:hover { opacity: 0.7; }
+
+    /* Required Section e: Contact Form */
+    form { 
+      display: flex; 
+      flex-direction: column; 
+      gap: 1rem; 
+    }
+    
+    input, textarea { 
+      width: 100%; 
+      padding: 1rem; 
+      border-radius: 8px; 
+      border: 1px solid #4b5563; 
+      background: #111827; 
+      color: white; 
+      font-family: inherit;
+    }
+    
+    button { 
+      background: var(--primary); 
+      color: white; 
+      border: none; 
+      padding: 1rem 2rem; 
+      border-radius: 8px; 
+      cursor: pointer; 
+      font-weight: bold; 
+      width: max-content; 
+      transition: background 0.2s;
+    }
+    
+    button:hover { background: #0f766e; }
+
+    footer { 
+      text-align: center; 
+      padding: 2rem; 
+      color: var(--text-muted); 
+      font-size: 0.9rem; 
+    }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>My Technical Writing Portfolio</h1>
-    <p>A collection of my academic and professional work.</p>
-  </header>
-
   <nav>
-    <a href="#welcome">Home</a>
-    <a href="#about">About Me</a>
-    <a href="#projects">Projects</a>
-    <a href="#reflection">Reflection</a>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#portfolio">Projects</a>
     <a href="#contact">Contact</a>
   </nav>
 
   <main>
-    <section id="welcome" class="card">
-      <h2>Welcome to My Portfolio</h2>
-      <p>This website showcases my work and development as a technical writer.</p>
+    <section id="home" class="hero">
+      <h1>Caiden Martos</h1>
+      <p>Technical Writing & Design Portfolio</p>
     </section>
 
-    <section id="about" class="card">
+    <!-- Required Sections b & c: Field of study and hobbies -->
+    <section id="about">
       <h2>About Me</h2>
-      <p>Field of study, academic background, and relevant interests.</p>
+      <p>I am a student currently studying at the University of Pittsburgh.</p>
+      <br>
+      <p><strong>Interests:</strong> When I'm taking a break from my coursework, you can usually find me diving into PC and console games, catching the newest movie screenings at the theater, or reminiscing about my recent study abroad travels through Italy.</p>
     </section>
 
-    <section id="projects" class="card">
-      <h2>My Projects</h2>
-      <p>Course deliverables: proposal, safety document, infographic, usability study, and oral presentation.</p>
+    <!-- Required Section d: Portfolio links -->
+    <section id="portfolio">
+      <h2>Portfolio Projects</h2>
+      <ul class="projects-list">
+        <li><a href="#">&rarr; Project Proposal</a></li>
+        <li><a href="#">&rarr; Safety Document</a></li>
+        <li><a href="#">&rarr; Informational Infographic</a></li>
+        <li><a href="#">&rarr; Usability Study Report</a></li>
+        <li><a href="#">&rarr; Oral Presentation Deck</a></li>
+      </ul>
     </section>
 
-    <section id="reflection" class="card">
-      <h2>Course Reflection</h2>
-      <p>Key takeaways and skills developed over the course.</p>
-    </section>
-
-    <section id="contact" class="card">
-      <h2>Contact</h2>
-      <p>Email and contact details.</p>
-    </section>
-  </main>
-
-  <footer>
-    <p>My Technical Writing Portfolio | 2026</p>
-  </footer>
-
-</body>
-</html>
+    <section id="contact">
+      <h2>Get in Touch</h2>
+      <form action="#" method="POST">
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="email" name="email" placeholder="Email Address" required>
+        <textarea name="message" rows="5" placeholder="How can I help you?" required></textarea>
+        <button type="submit">Submit Message</button>
+      </form>
